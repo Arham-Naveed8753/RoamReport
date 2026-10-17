@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '../../components'
 import peopleSitting from '../../assets/peopleSitting.png'
-import rome from '../../assets/rome.png'
+import rome from '../../assets/Rome.png'
 import cabins from '../../assets/cabins.png'
 import couple from '../../assets/couple.png'
 
