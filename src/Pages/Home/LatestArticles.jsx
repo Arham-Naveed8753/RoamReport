@@ -2,7 +2,7 @@ import React , {useState , useEffect} from 'react'
 import { Container, PostCard } from '../../components'
 import {BlogCard} from '../../components'
 import womanWalking from '../../assets/womanWalking.jpg'
-import rome from '../../assets/rome.png'
+import rome from '../../assets/Rome.png'
 import appwriteService from '../../appwrite/config'
 
 
