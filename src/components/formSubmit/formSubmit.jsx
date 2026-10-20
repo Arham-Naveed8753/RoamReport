@@ -155,7 +155,7 @@ function formSubmit({post}) {
                 {post && (
                     <div className="w-full mb-4 rounded-2xl overflow-hidden border border-gray/20">
                         <img
-                            src={service.getFilePreview(post.featureImage)}
+                            src={service.filePreview(post.featureImage)}
                             alt={post.title}
                             className="w-full h-48 object-cover"
                         />

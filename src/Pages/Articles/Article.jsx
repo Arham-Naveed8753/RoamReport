@@ -43,7 +43,7 @@ export default function Article() {
             <Container>
                 <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
                     <img
-                    src={appwriteService.filePreview(post.featureImage).toString()}
+                    src={appwriteService.filePreview(post.featureImage)}
                     alt={post.title}
                     className="rounded-xl"
                     onError={(e) => {

@@ -44,7 +44,7 @@ function Upcoming() {
                 <div className='flex flex-col '>
                     {events.map((event, index) => (
 
-                        <div className={`flex justify-between border-t border-cream border-dashed  py-5  ${index === events.length - 1 ? 'border-b' : null}`}>
+                        <div key={event.number} className={`flex justify-between border-t border-cream border-dashed  py-5  ${index === events.length - 1 ? 'border-b' : null} `}>
                             <div className='flex  items-center gap-5'>
                             <div className='font-xanhMono text-four_five font-normal leading-[120%] tracking-[-0.135rem] lg:text-six_five'>{event.number}</div>
                             <div className='flex flex-col '>
