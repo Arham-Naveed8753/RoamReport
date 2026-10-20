@@ -169,8 +169,8 @@ export  class ServiceConfig {
     filePreview(fileId) {
         return this.storage.getFilePreview(
             {
-                bucketId: conf.appwriteBucketId,
-                fileId: fileId
+                bucketId : conf.appwriteBucketId,
+                fileId : fileId
             }
         )
     }
