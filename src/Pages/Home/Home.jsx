@@ -10,19 +10,19 @@ import patch from '../../assets/patch.svg'
 function Home() {
   return (
     <header className='bg-light-blue '>
-      <div className='lg:flex '>
+      {/* <div className='lg:flex '>
 
       <div className='lg:w-1/2'>
         <Hero className={`hidden lg:block  `}/>
-      </div>
-      <div className='lg:w-1/2'>
-        <Hero className={` lg:hidden`}/>
+      </div> */}
+      {/* <div className='lg:w-1/2'> */}
+        <Hero className={` `}/>
         <Featured/>
         <LatestArticles/>
         <Upcoming />
         
-        </div>
-        </div>
+        {/* </div>
+        </div> */}
     </header>
   )
 }

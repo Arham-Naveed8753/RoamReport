@@ -37,7 +37,7 @@ const navItems = [
   return (
 
 
-<nav className='z-100 fixed flex items-center  rounded-six_twenty_four py-3.5 px-6 bg-white translate-[-50%]  top-10 left-1/2  lg:left-1/4 lg:top-15'>
+<nav className='z-100 fixed flex items-center  rounded-six_twenty_four py-3.5 px-6 bg-white translate-[-50%]  top-12 left-1/2  '>
     <div className=''>
         <div className='flex justify-center items-center gap-5'>
         {navItems.map((item)=> (

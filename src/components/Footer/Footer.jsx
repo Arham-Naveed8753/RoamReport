@@ -2,6 +2,8 @@ import React from 'react'
 import Container from '../Container'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import BeforeFooter from '../../Pages/Home/BeforeFooter'
+import patch from '../../assets/patch.svg'
 import { 
   faFacebook, 
   faSquareInstagram, 
@@ -52,8 +54,8 @@ function Footer() {
 
   const navigate = useNavigate()
   return (
-    
-
+    <>
+ <BeforeFooter className={`relative w-full`} imgAtributes={`w-full`} img={patch}/>
     <Container className={`bg-skin `}> 
       <div className='flex flex-col items-center text-brown text-center '>
         <h2 className=' font-jakrta text-one_three_seven_five font-semibold leading-[120%] tracking-zero-zero_two_five'>End of the trail</h2>
@@ -92,6 +94,7 @@ function Footer() {
         <p className='text-center text-one font-jakrta leading-[120%] tracking-tight mt-8'>Copyright ©2025  ·  The Roam Report</p>
       </div>
     </Container>
+    </>
   )
 }
 
