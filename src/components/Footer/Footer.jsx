@@ -52,6 +52,8 @@ function Footer() {
 
   const navigate = useNavigate()
   return (
+    
+
     <Container className={`bg-skin `}> 
       <div className='flex flex-col items-center text-brown text-center '>
         <h2 className=' font-jakrta text-one_three_seven_five font-semibold leading-[120%] tracking-zero-zero_two_five'>End of the trail</h2>

@@ -34,7 +34,7 @@ const router = createBrowserRouter(
       <AddArticle />
       </AuthLayout>)} />
 
-      <Route path='/edit-article/:slug'  element={(<AuthLayout authentication={true} >
+      <Route path='/edit-post/:slug'  element={(<AuthLayout authentication={true} >
       <EditArticle />
       </AuthLayout>)} />
 
@@ -95,12 +95,12 @@ function App() {
 
   return (
     <>
-      {/* {loaderVisible && (
+      {loaderVisible && (
         <RoomReportLoader
           ready={!authLoading}
           onComplete={handleLoaderComplete}
         />
-      )} */}
+      )}
 
         
         <RouterProvider router={router} />

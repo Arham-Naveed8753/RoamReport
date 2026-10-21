@@ -30,7 +30,7 @@ export  class ServiceConfig {
     }
     
 
-    async createPost({ title, slug, content, featureImage, status, userId }) {
+    async createPost({ title, slug, content, featureImage, status, userId , date }) {
         try {
             return await this.tablesdb.createRow(
                 {
@@ -42,7 +42,8 @@ export  class ServiceConfig {
                         content,
                         featureImage,
                         status,
-                        userId
+                        userId,
+                        date
                     }
                 }
             )
@@ -113,19 +114,19 @@ export  class ServiceConfig {
         }
     }
 
-    async ListPosts(query = [Query.equal('status', 'active')]) {
+    async ListPosts(queries = [Query.equal('status', 'active')]) {
         try {
             return await this.tablesdb.listRows(
                 {
                     databaseId: conf.appwriteDatabaseId,
                     tableId: conf.appwriteCollectionId,
-                    query
+                    queries : queries
                 }
 
             )
 
         } catch (error) {
-            console.log(`Appwrite DeletePost Erorr :: ${error}`)
+            console.log(`Appwrite List Posts Erorr :: ${error}`)
 
         }
     }
@@ -160,18 +161,19 @@ export  class ServiceConfig {
             )
             return true
         } catch (error) {
-            console.log(`Appwrite UploadFile :: error ${error}`)
+            console.log(`Appwrite DeleteFile :: error ${error}`)
             return false
         }
 
     }
 
     filePreview(fileId) {
-        return this.storage.getFilePreview(
-            {
-                bucketId : conf.appwriteBucketId,
-                fileId : fileId
-            }
+        return this.storage.getFileView(
+            
+               { bucketId : conf.appwriteBucketId,
+                 fileId : fileId
+                }
+            
         )
     }
 

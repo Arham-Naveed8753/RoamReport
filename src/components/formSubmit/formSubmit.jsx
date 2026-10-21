@@ -10,6 +10,11 @@ import {RTE , Button , Input , Select } from '../index'
 
 function formSubmit({post}) {
 
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+    const date = today.toLocaleDateString('en-US' , options)
+
     const {register , handleSubmit , control , setValue , getValues , watch} = useForm(
         {
             defaultValues : {
@@ -17,6 +22,7 @@ function formSubmit({post}) {
                 content : post?.content || '',
                 status : post?.status || 'active',
                 slug : post?.slug || '',
+                date : post?.date || ''
                
             }
         }
@@ -61,6 +67,7 @@ function formSubmit({post}) {
                     {
                         ...data ,
                         userId : userData.$id
+                    
                     }
                 )
                 if (dbPost) {
@@ -133,6 +140,15 @@ function formSubmit({post}) {
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
+                />
+               <Input
+                    label="Date"
+                    placeholder="Date :"
+                    className="w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown font-xanhMono focus:outline-none focus:ring-2 focus:ring-blue transition-all"
+                    labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
+                    {...register("date" , setValue('date' , date) )}
+                    readOnly
+                    value={date}
                 />
                 <div>
                     <label className="block text-one_eight_seven_five font-medium text-brown mb-2">Content :</label>

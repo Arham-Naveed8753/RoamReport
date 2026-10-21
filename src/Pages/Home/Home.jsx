@@ -10,11 +10,19 @@ import patch from '../../assets/patch.svg'
 function Home() {
   return (
     <header className='bg-light-blue '>
-        <Hero/>
+      <div className='lg:flex '>
+
+      <div className='lg:w-1/2'>
+        <Hero className={`hidden lg:block  `}/>
+      </div>
+      <div className='lg:w-1/2'>
+        <Hero className={` lg:hidden`}/>
         <Featured/>
         <LatestArticles/>
         <Upcoming />
-        <BeforeFooter className={`relative w-full`} imgAtributes={`w-full`} img={patch}/>
+        
+        </div>
+        </div>
     </header>
   )
 }

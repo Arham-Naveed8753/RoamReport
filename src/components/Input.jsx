@@ -27,6 +27,7 @@ const Input = forwardRef( function Input(
             id={id}
             ref={ref}
             {...props}
+            
             />
         </div>
     )

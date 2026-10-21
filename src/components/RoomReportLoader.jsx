@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const JOURNEY_DURATION = 4500;
 const EXIT_DURATION = 600;
@@ -34,8 +34,9 @@ export default function RoomReportLoader({ ready, onComplete }) {
         fixed inset-0 z-[9999]
         flex items-center justify-center
         overflow-hidden
-        bg-[#c9dcff]
+        bg-light-blue
         transition-all duration-600 ease-out
+        font-jakrta
         ${
           finishing
             ? "pointer-events-none scale-[1.02] opacity-0"
@@ -57,7 +58,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
           className="
             absolute bottom-[5%] right-[5%]
             h-64 w-64 rounded-full
-            bg-[#0057d9]/10 blur-3xl
+            bg-blue/10 blur-3xl
           "
         />
 
@@ -73,8 +74,9 @@ export default function RoomReportLoader({ ready, onComplete }) {
             className="
               mb-3
               text-[9px] font-medium uppercase
+              font-xanhMono
               tracking-[0.35em]
-              text-[#0057d9]/70
+              text-blue/70
               sm:text-[10px] md:text-xs
             "
           >
@@ -83,13 +85,14 @@ export default function RoomReportLoader({ ready, onComplete }) {
 
           <h1
             className="
-              text-5xl font-black uppercase
-              leading-[0.82]
-              tracking-[-0.07em]
-              text-[#0057d9]
+              font-gaseok
+              text-5xl uppercase
+              leading-[0.85]
+              tracking-minus_zero_eight
+              text-blue
               sm:text-6xl
               md:text-7xl
-              lg:text-8xl
+              lg:text-eight_five
             "
           >
             The Room
@@ -102,13 +105,13 @@ export default function RoomReportLoader({ ready, onComplete }) {
         <div
           className="
             relative
-            mt-8
+            mt-6
             h-[190px]
             w-full
             max-w-[600px]
-            sm:mt-10
+            sm:mt-8
             sm:h-[230px]
-            md:mt-12
+            md:mt-10
             md:h-[250px]
           "
         >
@@ -147,7 +150,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
             {/* Very subtle base path */}
             <use
               href="#room-report-journey"
-              stroke="#0057D9"
+              stroke="#0053D4"
               strokeOpacity=".12"
               strokeWidth="5"
               strokeLinecap="round"
@@ -157,7 +160,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
             <use
               href="#room-report-journey"
               className="journey-path"
-              stroke="#0057D9"
+              stroke="#0053D4"
               strokeWidth="3.5"
               strokeLinecap="round"
             />
@@ -167,8 +170,8 @@ export default function RoomReportLoader({ ready, onComplete }) {
               cx="35"
               cy="195"
               r="6"
-              fill="#f8f5ed"
-              stroke="#0057D9"
+              fill="#F9F1E2"
+              stroke="#0053D4"
               strokeWidth="2.5"
             />
 
@@ -181,7 +184,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 320 28
               "
               className="wrong-turn-path"
-              stroke="#0057D9"
+              stroke="#0053D4"
               strokeWidth="2"
               strokeLinecap="round"
               strokeDasharray="4 7"
@@ -193,8 +196,8 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 cx="520"
                 cy="40"
                 r="19"
-                fill="#f8f5ed"
-                stroke="#0057D9"
+                fill="#F9F1E2"
+                stroke="#0053D4"
                 strokeWidth="2"
               />
 
@@ -210,7 +213,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                   L517 37
                   Z
                 "
-                fill="#0057D9"
+                fill="#0053D4"
               />
             </g>
 
@@ -243,14 +246,14 @@ export default function RoomReportLoader({ ready, onComplete }) {
                   width="10"
                   height="17"
                   rx="3"
-                  fill="#f8f5ed"
-                  stroke="#0057D9"
+                  fill="#F9F1E2"
+                  stroke="#0053D4"
                   strokeWidth="2.3"
                 />
 
                 <path
                   d="M-12 -8 Q-17 -5 -12 0"
-                  stroke="#0057D9"
+                  stroke="#0053D4"
                   strokeWidth="2"
                   strokeLinecap="round"
                 />
@@ -260,13 +263,13 @@ export default function RoomReportLoader({ ready, onComplete }) {
                   cx="0"
                   cy="-17"
                   r="5.5"
-                  fill="#0057D9"
+                  fill="#0053D4"
                 />
 
                 {/* Body */}
                 <path
                   d="M0 -10 L0 5"
-                  stroke="#0057D9"
+                  stroke="#0053D4"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                 />
@@ -275,7 +278,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 <g className="traveler-arm-left">
                   <path
                     d="M0 -7 L-7 -1"
-                    stroke="#0057D9"
+                    stroke="#0053D4"
                     strokeWidth="2.8"
                     strokeLinecap="round"
                   />
@@ -285,7 +288,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 <g className="traveler-arm-right">
                   <path
                     d="M0 -7 L7 -1"
-                    stroke="#0057D9"
+                    stroke="#0053D4"
                     strokeWidth="2.8"
                     strokeLinecap="round"
                   />
@@ -295,7 +298,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 <g className="traveler-leg-left">
                   <path
                     d="M0 5 L-6 15"
-                    stroke="#0057D9"
+                    stroke="#0053D4"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -305,7 +308,7 @@ export default function RoomReportLoader({ ready, onComplete }) {
                 <g className="traveler-leg-right">
                   <path
                     d="M0 5 L6 15"
-                    stroke="#0057D9"
+                    stroke="#0053D4"
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
@@ -317,13 +320,12 @@ export default function RoomReportLoader({ ready, onComplete }) {
         </div>
 
         {/* Message */}
-        <div className="loader-message mt-2">
+        <div className="loader-message mt-1">
           <p
             className="
-              text-sm font-medium
-              text-[#0057d9]
-              sm:text-base
-              md:text-lg
+              text-one font-medium
+              text-blue
+              sm:text-one_two_five
             "
           >
             Finding a story
@@ -332,9 +334,9 @@ export default function RoomReportLoader({ ready, onComplete }) {
 
           <div
             className="
-              mx-auto mt-3
+              mx-auto mt-2.5
               h-px w-16
-              bg-[#0057d9]/30
+              bg-blue/30
               sm:w-20
             "
           />
@@ -348,9 +350,10 @@ export default function RoomReportLoader({ ready, onComplete }) {
           flex w-full items-center justify-center
           gap-2 overflow-hidden
           whitespace-nowrap px-3
+          font-xanhMono
           text-[8px] uppercase
           tracking-[0.14em]
-          text-[#0057d9]/55
+          text-blue/60
           sm:gap-3
           sm:text-[9px]
           sm:tracking-[0.18em]

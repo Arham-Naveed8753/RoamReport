@@ -1,9 +1,11 @@
 import React from 'react'
 import { Container } from '../../components'
 
-function Hero() {
+
+function Hero({className}) {
   return (
-    <Container className={`h-dvh  bg-light-blue pt-40  lg:pt-35 sticky top-0`}>
+  
+    <Container className={`h-dvh bg-light-blue pt-40   lg:pt-30 sticky top-0 ${className}`}>
     <div className='flex flex-col items-center gap-10 '>
       <div className='max-w-237.5 w-full text-dark-blue  '>
         <div className='md:hidden flex flex-wrap justify-center  ' >
@@ -24,8 +26,13 @@ function Hero() {
         </div>
       </div>
 
+    
     </div>
+
+   
     </Container>
+
+    
   )
 }
 
