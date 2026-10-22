@@ -10,11 +10,13 @@ function SignUp() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [error , setError] = useState('')
-  const {register , handleSubmit , watch} = useForm()
+  const {register , handleSubmit , watch , formState : {errors}} = useForm()
 
   
 
   const password = watch('password' , '')
+
+  
 
   const signUp = async (data) => {
      setError('')
@@ -38,7 +40,7 @@ function SignUp() {
  return (
     <div className="min-h-screen w-full flex font-jakrta bg-skin text-brown">
       
-      {/* Left Column - Aesthetic Visual / Branding Panel */}
+      
       <div className="h-dvh hidden lg:flex lg:w-1/2 bg-blue text-cream p-12 flex-col justify-between relative overflow-hidden">
         <div className="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-light-blue/20 blur-3xl pointer-events-none"></div>
         
@@ -106,6 +108,7 @@ function SignUp() {
                   }
                 )}
               />
+              {errors.email && <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{errors.email.message}</p>}
             </div>
 
             <div>
@@ -123,7 +126,9 @@ function SignUp() {
                             }
                       }
                   )}
+                  
                 />
+                {errors.password && <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{errors.password.message}</p>}
             </div>
 
             <div>
@@ -140,7 +145,7 @@ function SignUp() {
                 }
               )}
               />
-              
+              {errors.confirmPassword && <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{errors.confirmPassword.message}</p>}
             </div>
 
             <div className="pt-2">

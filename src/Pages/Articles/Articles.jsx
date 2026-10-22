@@ -2,8 +2,9 @@ import { useState , useEffect } from "react"
 import React  from 'react'
 import { Container , PostCard } from "../../components"
 import appwriteService from '../../appwrite/config'
+import icon from '../../assets/icon.svg'
 
-function Articles() {
+function Articles({className}) {
   const [posts , setPosts] = useState([])
 
 
@@ -30,13 +31,15 @@ useEffect(()=>{
 } , [])
 
   const zeroPost = posts.length === 0 ? true : false
+ 
 
   return (
-    <Container className={` bg-skin min-h-dvh relative flex flex-col gap-10 ${zeroPost ? 'items-center justify-center' : ''}`}>
+    <Container className={` bg-skin min-h-dvh relative flex flex-col  ${className} ${zeroPost ? 'items-center justify-center' : ''} `}>
         <h1 className='text-center text-brown text-two font-xanhMono font-semibold leading-[120%] tracking-tight '>All travel stories</h1>
         {zeroPost && <h1 className='text-center text-brown text-two font-xanhMono font-semibold leading-[120%] tracking-tight ]'>There are currently no posts</h1>}
-        <div className='grid grid-cols-1 justify-center gap-10'>
+        <div className='grid grid-cols-1 justify-center gap-10 border-b border-dashed border-gray py-15'>
         {posts.map((post)=> (
+          
           <div className="" key={post.$id}>
             <PostCard featureImage={post.featureImage} title={post.title}  $id={post.$id} altText={post.title} heading={post.date}
             />
@@ -44,6 +47,10 @@ useEffect(()=>{
         ))}
 
         </div>
+        <div className="w-full  flex justify-center items-center overflow-hidden pt-10">
+          <img src={icon} alt="icon" className="h-20 md:h-30 lg:h-40"/>
+        </div>
+
     </Container>
   )
 }

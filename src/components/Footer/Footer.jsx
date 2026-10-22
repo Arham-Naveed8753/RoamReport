@@ -2,8 +2,8 @@ import React from 'react'
 import Container from '../Container'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import BeforeFooter from '../../Pages/Home/BeforeFooter'
-import patch from '../../assets/patch.svg'
+
+
 import { 
   faFacebook, 
   faSquareInstagram, 

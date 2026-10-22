@@ -4,6 +4,7 @@ import appwriteService from "../../appwrite/config";
 import { Button, Container } from "../../components";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import Articles from "./Articles";
 
 export default function Article() {
     const [post, setPost] = useState(null);
@@ -101,6 +102,9 @@ export default function Article() {
 
                 </article>
             </Container>
+          
+                <Articles className={`relative`}/>
+            
         </div>
     ) : null;
 }

@@ -53,7 +53,7 @@ function Upcoming() {
                                 <p className='text-one lg:text-one_two font-normal leading-[120%] tracking-[-0.02rem]'>{event.title}</p>
                             </div>
                             </div>
-                            <div className={`overflow-hidden max-w-60 h-40 w-full  self-end bg-cover bg-center rounded-xl hidden md:block lg:hidden xl:block`}
+                            <div className={`overflow-hidden max-w-60 h-40 w-full  self-end bg-cover bg-center rounded-xl hidden md:block  xl:block`}
                             style={{backgroundImage : `url(${event.img})`}}>
                                
                             </div>

@@ -14,7 +14,7 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [error , setError] = useState('')
-  const {register , handleSubmit} = useForm();
+  const {register , handleSubmit , formState : {errors}} = useForm();
 
   
 
@@ -78,7 +78,7 @@ function Login() {
             <h2 className="font-gaseok text-two text-brown mb-2 text-center">
               Sign in to your account
             </h2>
-            <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{error}</p>
+           
           </div>
 
           {/* Form Fields */}
@@ -99,7 +99,7 @@ function Login() {
                     }
                   }
                 )}/>
-                
+                {errors.email &&  <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{errors.email.message}</p>}
                 
               </div>
             
@@ -115,12 +115,12 @@ function Login() {
                 {
                   required : true ,
                   validate : {
-                    matchPattern : (value)=> /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(value) || 'Must contain Atleast one UPPERCASE and one lowercase and must be atleast 8 characters'
+                    matchPattern : (value)=> /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm.test(value) || 'Wrong password'
                   }
                 }
               )}
               />
-              
+                       {errors.password &&  <p className='text-red-300 text-eight_seven_five text-start font-jakrta mt-2'>{errors.password.message}</p>}
             </div>
 
             

@@ -45,7 +45,7 @@ const navItems = [
                     <NavLink
                     to={item.to}
                     className={ ({ isActive }) => 
-                    `leading-5 font-jakarta font-semibold text-eight_seven_five cursor-pointer tracking-[-0.28px]   ${
+                    `leading-5 font-jakarta font-semibold text-eight_seven_five shrink-0 md:text-eight_seven_five cursor-pointer tracking-[-0.28px]   ${
                     isActive ? 'text-black' : 'text-gray hover:text-blue transition duration-150 ease-in'
                     }`
                     }
