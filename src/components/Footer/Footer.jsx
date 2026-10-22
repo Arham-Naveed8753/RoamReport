@@ -21,11 +21,11 @@ function Footer() {
     },
     {
       Name : 'Articles',
-      url : '/articles',
+      url : '/all-articles',
     },
     {
       Name : 'New Post',
-      url : '/new-post',
+      url : '/new-article',
     },
   ]
 
