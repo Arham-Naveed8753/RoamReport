@@ -66,13 +66,11 @@ function formSubmit({post}) {
                 await service.createPost(
                     {
                         ...data ,
-                        userId : userData.$id,
-                        
-                    
+                        userId : userData?.$id
                     }
                 )
                 if (dbPost) {
-                    navigate(`/post/${dbPost.$id}`)
+                    navigate(`/post/${dbPost?.$id}`)
                 }
             }
         }
@@ -101,8 +99,8 @@ function formSubmit({post}) {
             }
 
 
-            return () => subscription.unsubscribe()
         })
+        return () => subscription.unsubscribe()
 
     }, [watch , slugTransformation , setValue])
     
@@ -139,7 +137,7 @@ function formSubmit({post}) {
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     {...register("slug", { required: true })}
                     onInput={(e) => {
-                        setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
+                        setValue("slug", slugTransformation(e.currentTarget.value), { shouldValidate: true });
                     }}
                 />
                <Input
@@ -186,7 +184,7 @@ function formSubmit({post}) {
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2 capitalize"
                     {...register('status' , {required : true})}
                 />
-
+                
                 <Button 
                     type="submit" 
                     bgColor={post ? "bg-olive hover:bg-olive/90" : "bg-blue hover:bg-dark-blue"} 
