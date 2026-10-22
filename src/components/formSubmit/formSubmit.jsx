@@ -66,7 +66,8 @@ function formSubmit({post}) {
                 await service.createPost(
                     {
                         ...data ,
-                        userId : userData.$id
+                        userId : userData.$id,
+                        
                     
                     }
                 )

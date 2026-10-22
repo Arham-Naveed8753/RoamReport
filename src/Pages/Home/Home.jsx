@@ -20,7 +20,7 @@ function Home() {
         <Featured/>
         <LatestArticles/>
         <Upcoming />
-        
+        <BeforeFooter className={`relative w-full`} imgAtributes={`w-full`} img={patch}/>
         {/* </div>
         </div> */}
     </header>
