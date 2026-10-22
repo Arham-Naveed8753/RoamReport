@@ -40,7 +40,7 @@ function Upcoming() {
     return (
         <Container className={`bg-olive min-h-dvh relative`}>
             <div className='flex flex-col gap-5 text-cream font-jakrta'>
-                <h1 className='text-two text-center mx-auto font-semibold leading-[120%] tracking-[-0.032rem] font-xanhMono'>Upcoming itinerary</h1>
+                <h1 className='text-two text-center mx-auto font-semibold leading-[120%] tracking-[-0.032rem] '>Upcoming itinerary</h1>
                 <div className='flex flex-col '>
                     {events.map((event, index) => (
 
