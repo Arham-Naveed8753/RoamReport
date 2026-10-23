@@ -136,10 +136,7 @@ function formSubmit({post}) {
                     disabled={locked}
                     className="w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown font-xanhMono focus:outline-none focus:ring-2 focus:ring-blue transition-all"
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
-                    {...register("slug", { required: true })}
-                    onInput={(e) => {
-                        setValue("slug", slugTransformation(e.currentTarget.value), { shouldValidate: true });
-                    }}
+                    {...register("slug", { required: true })}     
                 />
                <Input
                     label="Date"
