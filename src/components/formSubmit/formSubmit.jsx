@@ -102,6 +102,10 @@ function formSubmit({post}) {
         return () => subscription.unsubscribe()
 
     }, [watch , slugTransformation , setValue])
+
+    const title = watch('title' , '')
+
+    const titleLength = Array.from(title)
     
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 font-jakrta text-brown">
@@ -130,6 +134,7 @@ function formSubmit({post}) {
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     {...register("title", { required: true })}
                 />
+                {titleLength && <p className={`${titleLength.length > 0 && titleLength.length <= 36 ? 'text-green-300' : 'text-red-300'} ${titleLength.length === 0 ? 'hidden' : 'block'} text-six_seven_five text-start font-jakrta `}>{titleLength.length}</p>}
                <Input
                     label="Slug :"
                     placeholder="Slug"
