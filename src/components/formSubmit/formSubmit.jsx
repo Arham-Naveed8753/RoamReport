@@ -15,7 +15,7 @@ function formSubmit({post}) {
 
     const date = today.toLocaleDateString('en-US' , options)
 
-    const {register , handleSubmit , control , setValue , getValues , watch} = useForm(
+    const {register , handleSubmit, reset , control , setValue , getValues , watch , formState : {isSubmitting , isSubmitSuccessful}} = useForm(
         {
             defaultValues : {
                 title : post?.title || '',
@@ -27,10 +27,11 @@ function formSubmit({post}) {
             }
         }
     )
-
+    const locked = isSubmitting || isSubmitSuccessful ;
     const navigate = useNavigate()
-    const userData = useSelector((state) => state.auth.data)
+    const userData = useSelector((state) => state.auth.userData)
 
+    console.log(userData)
     const submit = async (data) => {
         if (post) {
 
@@ -63,8 +64,8 @@ function formSubmit({post}) {
                 const dbPost = 
                 await service.createPost(
                     {
-                        ...data ,
-                        userId : userData?.$id
+                        userId : userData?.$id ,
+                        ...data 
                     }
                 )
                 if (dbPost) {
@@ -124,6 +125,7 @@ function formSubmit({post}) {
                <Input
                     label="Title :"
                     placeholder="Title"
+                    disabled={locked}
                     className="w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown focus:outline-none focus:ring-2 focus:ring-blue transition-all"
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     {...register("title", { required: true })}
@@ -131,6 +133,7 @@ function formSubmit({post}) {
                <Input
                     label="Slug :"
                     placeholder="Slug"
+                    disabled={locked}
                     className="w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown font-xanhMono focus:outline-none focus:ring-2 focus:ring-blue transition-all"
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     {...register("slug", { required: true })}
@@ -141,6 +144,7 @@ function formSubmit({post}) {
                <Input
                     label="Date"
                     placeholder="Date :"
+                    disabled={locked}
                     className="w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown font-xanhMono focus:outline-none focus:ring-2 focus:ring-blue transition-all"
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     {...register("date" , setValue('date' , date) )}
@@ -159,6 +163,7 @@ function formSubmit({post}) {
                 <Input
                     label="Featured Image :"
                     type={`file`}
+                    disabled={locked}
                     className="w-full text-one text-gray file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-one_eight_seven_five file:font-semibold file:bg-light-blue file:text-blue hover:file:bg-light-blue/80 transition-all cursor-pointer"
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2"
                     accept="image/png, image/jpg, image/jpeg, image/gif"
@@ -178,6 +183,7 @@ function formSubmit({post}) {
                 <Select 
                     options={['active' , 'inactive']}
                     label={`status`}
+                    disabled={locked}
                     className={`w-full px-4 py-3.5 bg-skin/40 border border-gray/30 rounded-xl text-one text-brown focus:outline-none focus:ring-2 focus:ring-blue transition-all cursor-pointer`}
                     labelClassName="block text-one_eight_seven_five font-medium text-brown mb-2 capitalize"
                     {...register('status' , {required : true})}
@@ -185,10 +191,19 @@ function formSubmit({post}) {
                 
                 <Button 
                     type="submit" 
+                    disabled={locked}
                     bgColor={post ? "bg-olive hover:bg-olive/90" : "bg-blue hover:bg-dark-blue"} 
                     className="w-full py-4 text-cream font-semibold text-one_two rounded-xl transition-all shadow-lg shadow-blue/20 cursor-pointer"
                 >
-                    {post ? "Update" : "Submit"}
+                    {isSubmitting ? 'Processing......' : post ? "Update" : "Submit"}
+                </Button>
+                <Button 
+                    type="button" 
+                    onClick={()=> reset()}
+                    bgColor={post ? "bg-olive hover:bg-olive/90" : "bg-blue hover:bg-dark-blue"} 
+                    className="w-full py-4 text-cream font-semibold text-one_two rounded-xl transition-all shadow-lg shadow-blue/20 cursor-pointer"
+                >
+                    {isSubmitting ? 'Add another' : 'Try Again'}
                 </Button>
             </div>
         </div>

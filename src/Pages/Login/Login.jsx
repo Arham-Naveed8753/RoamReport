@@ -128,6 +128,7 @@ function Login() {
             
               <Button 
               type='submit'
+              
               className='w-full py-3.5 bg-blue text-cream font-semibold text-one_two rounded-xl hover:bg-dark-blue transition-colors shadow-lg shadow-blue/20 cursor-pointer'
               > Sign in </Button>
             
