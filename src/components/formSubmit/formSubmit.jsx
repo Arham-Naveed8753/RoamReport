@@ -29,9 +29,7 @@ function formSubmit({post}) {
     )
 
     const navigate = useNavigate()
-    const userData = useSelector((state)=> (
-        state.auth.userData
-    ))
+    const userData = useSelector((state) => state.auth.data)
 
     const submit = async (data) => {
         if (post) {
